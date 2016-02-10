@@ -8,11 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		B083133E1C69BE7A00D0CB78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B083133D1C69BE7A00D0CB78 /* AppDelegate.swift */; };
-		B08313401C69BE7A00D0CB78 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B083133F1C69BE7A00D0CB78 /* ViewController.swift */; };
 		B08313431C69BE7A00D0CB78 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B08313411C69BE7A00D0CB78 /* Main.storyboard */; };
 		B08313451C69BE7A00D0CB78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B08313441C69BE7A00D0CB78 /* Assets.xcassets */; };
 		B08313481C69BE7A00D0CB78 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B08313461C69BE7A00D0CB78 /* LaunchScreen.storyboard */; };
 		B08313531C69BE7A00D0CB78 /* Cashy_PosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08313521C69BE7A00D0CB78 /* Cashy_PosTests.swift */; };
+		B08313671C69C0A600D0CB78 /* Montserrat-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = B083135F1C69C0A600D0CB78 /* Montserrat-Black.otf */; };
+		B08313681C69C0A600D0CB78 /* Montserrat-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B08313601C69C0A600D0CB78 /* Montserrat-Bold.otf */; };
+		B08313691C69C0A600D0CB78 /* Montserrat-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B08313611C69C0A600D0CB78 /* Montserrat-ExtraBold.otf */; };
+		B083136A1C69C0A600D0CB78 /* Montserrat-Hairline.otf in Resources */ = {isa = PBXBuildFile; fileRef = B08313621C69C0A600D0CB78 /* Montserrat-Hairline.otf */; };
+		B083136B1C69C0A600D0CB78 /* Montserrat-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = B08313631C69C0A600D0CB78 /* Montserrat-Light.otf */; };
+		B083136C1C69C0A600D0CB78 /* Montserrat-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B08313641C69C0A600D0CB78 /* Montserrat-Regular.otf */; };
+		B083136D1C69C0A600D0CB78 /* Montserrat-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B08313651C69C0A600D0CB78 /* Montserrat-SemiBold.otf */; };
+		B083136E1C69C0A600D0CB78 /* Montserrat-UltraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = B08313661C69C0A600D0CB78 /* Montserrat-UltraLight.otf */; };
+		B08313731C69C11D00D0CB78 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08313711C69C11D00D0CB78 /* Product.swift */; };
+		B08313741C69C11D00D0CB78 /* ProductDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08313721C69C11D00D0CB78 /* ProductDataSource.swift */; };
+		B08313761C69C13900D0CB78 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08313751C69C13900D0CB78 /* Keys.swift */; };
+		B083137B1C69C16F00D0CB78 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08313781C69C16F00D0CB78 /* ProductCell.swift */; };
+		B083137C1C69C16F00D0CB78 /* SalesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08313791C69C16F00D0CB78 /* SalesViewController.swift */; };
+		B083137D1C69C16F00D0CB78 /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B083137A1C69C16F00D0CB78 /* AddProductViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,7 +41,6 @@
 /* Begin PBXFileReference section */
 		B083133A1C69BE7A00D0CB78 /* Cashy_Pos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cashy_Pos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B083133D1C69BE7A00D0CB78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B083133F1C69BE7A00D0CB78 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B08313421C69BE7A00D0CB78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B08313441C69BE7A00D0CB78 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B08313471C69BE7A00D0CB78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +48,20 @@
 		B083134E1C69BE7A00D0CB78 /* Cashy_PosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Cashy_PosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B08313521C69BE7A00D0CB78 /* Cashy_PosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cashy_PosTests.swift; sourceTree = "<group>"; };
 		B08313541C69BE7A00D0CB78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B083135F1C69C0A600D0CB78 /* Montserrat-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Black.otf"; sourceTree = "<group>"; };
+		B08313601C69C0A600D0CB78 /* Montserrat-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.otf"; sourceTree = "<group>"; };
+		B08313611C69C0A600D0CB78 /* Montserrat-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBold.otf"; sourceTree = "<group>"; };
+		B08313621C69C0A600D0CB78 /* Montserrat-Hairline.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Hairline.otf"; sourceTree = "<group>"; };
+		B08313631C69C0A600D0CB78 /* Montserrat-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.otf"; sourceTree = "<group>"; };
+		B08313641C69C0A600D0CB78 /* Montserrat-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.otf"; sourceTree = "<group>"; };
+		B08313651C69C0A600D0CB78 /* Montserrat-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.otf"; sourceTree = "<group>"; };
+		B08313661C69C0A600D0CB78 /* Montserrat-UltraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-UltraLight.otf"; sourceTree = "<group>"; };
+		B08313711C69C11D00D0CB78 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		B08313721C69C11D00D0CB78 /* ProductDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDataSource.swift; sourceTree = "<group>"; };
+		B08313751C69C13900D0CB78 /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		B08313781C69C16F00D0CB78 /* ProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		B08313791C69C16F00D0CB78 /* SalesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SalesViewController.swift; sourceTree = "<group>"; };
+		B083137A1C69C16F00D0CB78 /* AddProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +103,11 @@
 		B083133C1C69BE7A00D0CB78 /* Cashy_Pos */ = {
 			isa = PBXGroup;
 			children = (
+				B083135E1C69C08B00D0CB78 /* Fonts */,
+				B083135D1C69C07E00D0CB78 /* Keys */,
+				B08313701C69C0EF00D0CB78 /* Products */,
+				B08313771C69C15500D0CB78 /* ViewControllers */,
 				B083133D1C69BE7A00D0CB78 /* AppDelegate.swift */,
-				B083133F1C69BE7A00D0CB78 /* ViewController.swift */,
 				B08313411C69BE7A00D0CB78 /* Main.storyboard */,
 				B08313441C69BE7A00D0CB78 /* Assets.xcassets */,
 				B08313461C69BE7A00D0CB78 /* LaunchScreen.storyboard */,
@@ -94,6 +123,48 @@
 				B08313541C69BE7A00D0CB78 /* Info.plist */,
 			);
 			path = Cashy_PosTests;
+			sourceTree = "<group>";
+		};
+		B083135D1C69C07E00D0CB78 /* Keys */ = {
+			isa = PBXGroup;
+			children = (
+				B08313751C69C13900D0CB78 /* Keys.swift */,
+			);
+			name = Keys;
+			sourceTree = "<group>";
+		};
+		B083135E1C69C08B00D0CB78 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				B083135F1C69C0A600D0CB78 /* Montserrat-Black.otf */,
+				B08313601C69C0A600D0CB78 /* Montserrat-Bold.otf */,
+				B08313611C69C0A600D0CB78 /* Montserrat-ExtraBold.otf */,
+				B08313621C69C0A600D0CB78 /* Montserrat-Hairline.otf */,
+				B08313631C69C0A600D0CB78 /* Montserrat-Light.otf */,
+				B08313641C69C0A600D0CB78 /* Montserrat-Regular.otf */,
+				B08313651C69C0A600D0CB78 /* Montserrat-SemiBold.otf */,
+				B08313661C69C0A600D0CB78 /* Montserrat-UltraLight.otf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		B08313701C69C0EF00D0CB78 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B08313711C69C11D00D0CB78 /* Product.swift */,
+				B08313721C69C11D00D0CB78 /* ProductDataSource.swift */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B08313771C69C15500D0CB78 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B08313781C69C16F00D0CB78 /* ProductCell.swift */,
+				B08313791C69C16F00D0CB78 /* SalesViewController.swift */,
+				B083137A1C69C16F00D0CB78 /* AddProductViewController.swift */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,9 +248,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B08313691C69C0A600D0CB78 /* Montserrat-ExtraBold.otf in Resources */,
+				B083136E1C69C0A600D0CB78 /* Montserrat-UltraLight.otf in Resources */,
+				B08313681C69C0A600D0CB78 /* Montserrat-Bold.otf in Resources */,
+				B083136A1C69C0A600D0CB78 /* Montserrat-Hairline.otf in Resources */,
+				B08313671C69C0A600D0CB78 /* Montserrat-Black.otf in Resources */,
 				B08313481C69BE7A00D0CB78 /* LaunchScreen.storyboard in Resources */,
 				B08313451C69BE7A00D0CB78 /* Assets.xcassets in Resources */,
 				B08313431C69BE7A00D0CB78 /* Main.storyboard in Resources */,
+				B083136B1C69C0A600D0CB78 /* Montserrat-Light.otf in Resources */,
+				B083136C1C69C0A600D0CB78 /* Montserrat-Regular.otf in Resources */,
+				B083136D1C69C0A600D0CB78 /* Montserrat-SemiBold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,8 +276,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B08313401C69BE7A00D0CB78 /* ViewController.swift in Sources */,
 				B083133E1C69BE7A00D0CB78 /* AppDelegate.swift in Sources */,
+				B083137D1C69C16F00D0CB78 /* AddProductViewController.swift in Sources */,
+				B083137C1C69C16F00D0CB78 /* SalesViewController.swift in Sources */,
+				B08313741C69C11D00D0CB78 /* ProductDataSource.swift in Sources */,
+				B083137B1C69C16F00D0CB78 /* ProductCell.swift in Sources */,
+				B08313731C69C11D00D0CB78 /* Product.swift in Sources */,
+				B08313761C69C13900D0CB78 /* Keys.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +412,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Cashy_Pos/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.JhoanArango.Cashy-Pos";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -339,6 +424,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Cashy_Pos/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.JhoanArango.Cashy-Pos";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -388,6 +474,7 @@
 				B08313591C69BE7A00D0CB78 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B083135A1C69BE7A00D0CB78 /* Build configuration list for PBXNativeTarget "Cashy_PosTests" */ = {
 			isa = XCConfigurationList;
@@ -396,6 +483,7 @@
 				B083135C1C69BE7A00D0CB78 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

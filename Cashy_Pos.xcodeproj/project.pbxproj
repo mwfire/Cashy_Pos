@@ -27,6 +27,9 @@
 		B083137B1C69C16F00D0CB78 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08313781C69C16F00D0CB78 /* ProductCell.swift */; };
 		B083137C1C69C16F00D0CB78 /* SalesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08313791C69C16F00D0CB78 /* SalesViewController.swift */; };
 		B083137D1C69C16F00D0CB78 /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B083137A1C69C16F00D0CB78 /* AddProductViewController.swift */; };
+		B08B7C141C6D12A800A86584 /* UserLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08B7C131C6D12A800A86584 /* UserLoginViewController.swift */; };
+		B08B7C161C6D140600A86584 /* UserSignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08B7C151C6D140600A86584 /* UserSignupViewController.swift */; };
+		B0B038B61C6EF3F100CDA0B0 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B038B51C6EF3F100CDA0B0 /* Alerts.swift */; };
 		B0B43B151C6D0E1F001C4088 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = B0B43B141C6D0E1F001C4088 /* Podfile */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +69,9 @@
 		B08313781C69C16F00D0CB78 /* ProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		B08313791C69C16F00D0CB78 /* SalesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SalesViewController.swift; sourceTree = "<group>"; };
 		B083137A1C69C16F00D0CB78 /* AddProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
+		B08B7C131C6D12A800A86584 /* UserLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLoginViewController.swift; sourceTree = "<group>"; };
+		B08B7C151C6D140600A86584 /* UserSignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSignupViewController.swift; sourceTree = "<group>"; };
+		B0B038B51C6EF3F100CDA0B0 /* Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		B0B43B141C6D0E1F001C4088 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		D4BF4FA9E549EC0D9F46B580 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -142,14 +148,6 @@
 			path = Cashy_PosTests;
 			sourceTree = "<group>";
 		};
-		B083135D1C69C07E00D0CB78 /* Keys */ = {
-			isa = PBXGroup;
-			children = (
-				B08313751C69C13900D0CB78 /* Keys.swift */,
-			);
-			name = Keys;
-			sourceTree = "<group>";
-		};
 		B083135E1C69C08B00D0CB78 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,7 +166,6 @@
 		B08313701C69C0EF00D0CB78 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B083135D1C69C07E00D0CB78 /* Keys */,
 				B08313711C69C11D00D0CB78 /* Product.swift */,
 				B08313721C69C11D00D0CB78 /* ProductDataSource.swift */,
 			);
@@ -181,6 +178,8 @@
 				B08313781C69C16F00D0CB78 /* ProductCell.swift */,
 				B08313791C69C16F00D0CB78 /* SalesViewController.swift */,
 				B083137A1C69C16F00D0CB78 /* AddProductViewController.swift */,
+				B08B7C131C6D12A800A86584 /* UserLoginViewController.swift */,
+				B08B7C151C6D140600A86584 /* UserSignupViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -197,6 +196,8 @@
 		B083FCB31C6BF53C00DB80E0 /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				B08313751C69C13900D0CB78 /* Keys.swift */,
+				B0B038B51C6EF3F100CDA0B0 /* Alerts.swift */,
 				B083133D1C69BE7A00D0CB78 /* AppDelegate.swift */,
 			);
 			name = Others;
@@ -377,7 +378,10 @@
 				B08313741C69C11D00D0CB78 /* ProductDataSource.swift in Sources */,
 				B083137B1C69C16F00D0CB78 /* ProductCell.swift in Sources */,
 				B08313731C69C11D00D0CB78 /* Product.swift in Sources */,
+				B0B038B61C6EF3F100CDA0B0 /* Alerts.swift in Sources */,
+				B08B7C161C6D140600A86584 /* UserSignupViewController.swift in Sources */,
 				B08313761C69C13900D0CB78 /* Keys.swift in Sources */,
+				B08B7C141C6D12A800A86584 /* UserLoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

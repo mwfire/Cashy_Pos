@@ -8,9 +8,9 @@
 
 import UIKit
 
+// Product should conform to  NSCoding for persistance, since it was disabled, its not conforming to it. 
 
-
-class Product : NSObject, NSCoding {
+class Product : NSObject {
     // MARK: - Properties
     
     var name: String?
@@ -35,8 +35,8 @@ class Product : NSObject, NSCoding {
         }
     }
     
-    // MARK: - NSCoding
-    
+    // MARK: - NSCoding ( Disabled )
+    /*
     /// Archiving Paths
     static let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
     static let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("products")
@@ -57,6 +57,7 @@ class Product : NSObject, NSCoding {
         /// Must call designated initializer from self (Product)
         self.init(name: name!,price: price, image: image!)
     }
+ */
 }
 
 

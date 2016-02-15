@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import Firebase
+
 
 class SalesViewController: UIViewController {
     // MARK: - Properties
+    
+    var firebase = Firebase(url: "https://cashy-pos.firebaseio.com")
     
     var productDataSource = ProductDataSource()
     
@@ -31,15 +35,19 @@ class SalesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        /// Loads persitant data, and adds it to the products array in ProductDataSource
-        if let products = productDataSource.loadProducts()  {
-            productDataSource.products += products
-        }
+        // Disabled
+        /*
+         /// Loads persitent data, and adds it to the products array in ProductDataSource
+         if let products = productDataSource.loadProducts()  {
+         productDataSource.products += products
+         }
+         */
     }
     
     //MARK: - Actions
     
     @IBAction func payButtonAction(sender: UIButton) {
+        
     }
     
     @IBAction func cancelButtonAction(sender: UIButton) {
@@ -55,19 +63,23 @@ class SalesViewController: UIViewController {
     }
     
     @IBAction func refundButtonAction(sender: UIButton) {
-        productCollectionView.allowsSelection = true
+        firebase.unauth()
+        dismissViewControllerAnimated(true, completion: nil)
     }
 
-    // MARK: - Navigation
-    
+    // MARK: - Navigation    
+
     /// Unwind Segue
     @IBAction func unwindToSalesViewController(segue: UIStoryboardSegue) {
         if let addProductViewController = segue.sourceViewController as? AddProductViewController , let product = addProductViewController.product {
-            /// **Step 2** Appends the instance of Product in the array of products in ProductDataSource.
+            /// **Step 2** Recives and Appends the instance of Product in the array of products in ProductDataSource.
             productDataSource.products.append(product)
             
+            // Disabled
+            /*
             /// Saves persistant data
             productDataSource.saveProducts()
+            */
         }
     }
     
@@ -85,8 +97,8 @@ extension SalesViewController: UICollectionViewDelegate {
         let total = productDataSource.addPrices(indexPath)
         update(total)
         
-        let cellSelected = productDataSource.turnSelectedCellGreenAtIndexPath(indexPath)
         let cell = productCollectionView.cellForItemAtIndexPath(indexPath) as! ProductCell
+        let cellSelected = productDataSource.turnSelectedCellGreenAtIndexPath(indexPath)
         
         if cellSelected {
             cell.greenImage.hidden = false
@@ -96,10 +108,11 @@ extension SalesViewController: UICollectionViewDelegate {
         
         let quantity = productDataSource.addQuantity(indexPath)
         cell.quantityLabel.text = "\(quantity)"
+
     }
 }
 
-// MARK: - DataSoruce Extension
+// MARK: - SalesViewController Extension
 
 extension SalesViewController: UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -136,6 +149,7 @@ extension SalesViewController: UICollectionViewDataSource {
         return cell
     }
 }
+
 
 
 

@@ -24,7 +24,7 @@ class ProductCell: UICollectionViewCell {
    override func layoutSubviews() {
         super.layoutSubviews()
         self.layer.cornerRadius = 8.0
-        blurEffect.layer.cornerRadius = 10.0
+        blurEffect.layer.cornerRadius = 5.0
     }
     
 }

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Firebase
+//import Firebase
 
 // Product should conform to  NSCoding for persistance, since it was disabled, its not conforming to it. 
 
@@ -35,14 +35,14 @@ class Product : NSObject {
             return nil
         }
     }
-    
-    init(snapshot: FDataSnapshot) {
-        name = snapshot.value["name"] as? String
-        price = snapshot.value["price"] as? Double
-        image = UIImage(named: "img")
-        selected = snapshot.value["selected"] as? Bool
-        quantity = 0
-    }
+    //MARK: - Firebase ( Disabled )
+    //    init(snapshot: FDataSnapshot) {
+    //        name = snapshot.value["name"] as? String
+    //        price = snapshot.value["price"] as? Double
+    //        image = UIImage(named: "img")
+    //        selected = snapshot.value["selected"] as? Bool
+    //        quantity = 0
+    //    }
     
     // MARK: - NSCoding ( Disabled )
     /*

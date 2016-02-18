@@ -6,6 +6,7 @@
 //  Copyright © 2016 Jhoan Arango. All rights reserved.
 //
 
+/*
 import UIKit
 import Firebase
 
@@ -80,3 +81,5 @@ extension UserSignupViewController: UITextViewDelegate {
         self.view.endEditing(true)
     }
 }
+ 
+ */

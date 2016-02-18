@@ -7,13 +7,12 @@
 //
 
 import UIKit
-import Firebase
-
+//import Firebase
 
 
 class AddProductViewController: UIViewController {
      // MARK: - Properties
-    var firebase = Firebase(url: "https://cashy-pos.firebaseio.com")
+//    var firebase = Firebase(url: "https://cashy-pos.firebaseio.com")
     
     var product: Product?
     

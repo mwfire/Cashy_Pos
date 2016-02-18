@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import Firebase
 
 
 
 class AddProductViewController: UIViewController {
      // MARK: - Properties
+    var firebase = Firebase(url: "https://cashy-pos.firebaseio.com")
     
     var product: Product?
     
@@ -52,16 +54,42 @@ class AddProductViewController: UIViewController {
         nameTextField.resignFirstResponder()
         priceTextField.resignFirstResponder()
         
+        presentAlert()
+    }
+    
+    func presentAlert() {
         /// UIImagePickerController is a view controller that lets a user pick media from their photo library.
         let imagePickerController = UIImagePickerController()
-        
-        /// Only allow photos to be picked, not taken.
-        imagePickerController.sourceType = .PhotoLibrary
-        
-        /// Make sure AddProductViewController is notified when the user picks an image.
         imagePickerController.delegate = self
         
-        presentViewController(imagePickerController, animated: true, completion: nil)
+        // Action Alert
+        let alert = UIAlertController(title: "Photo Selection", message: "", preferredStyle: .ActionSheet)
+        
+        // Take Photo Action Button
+        alert.addAction(UIAlertAction(title: "Take a Photo", style: .Default) { (ACTION) in
+            
+            /// Allows photos to be taken.
+            imagePickerController.sourceType = .Camera
+            
+            /// Presents the picker
+            self.presentViewController(imagePickerController, animated: true, completion: nil)
+            })
+        
+        // Browse Photos Action Button
+        alert.addAction(UIAlertAction(title: "Browse Photos", style: .Default) { (ACTION) in
+            
+            /// Only allow photos to be picked, not taken.
+            imagePickerController.sourceType = .PhotoLibrary
+            
+            /// Presents the picker
+            self.presentViewController(imagePickerController, animated: true, completion: nil)
+            })
+       
+        // Cancel Action Button
+        alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+        
+        /// Presents the Alert
+        self.presentViewController(alert, animated: true, completion: nil)
     }
 }
 

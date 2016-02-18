@@ -9,8 +9,6 @@
 import UIKit
 
 
-
-
 struct ProductDataSource {
     //MARK - Properties
 
@@ -18,7 +16,8 @@ struct ProductDataSource {
     var products = [Product]()
     var total = 0.00
 
-    //MARK - Saving & Loading data methods
+    //MARK - Saving & Loading data methods ( Disabled )
+    /*
     
     func saveProducts() {
         let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(products, toFile: Product.ArchiveURL.path!)
@@ -31,6 +30,7 @@ struct ProductDataSource {
     func loadProducts() -> [Product]? {
         return NSKeyedUnarchiver.unarchiveObjectWithFile(Product.ArchiveURL.path!) as? [Product]
     }
+ */
 }
 
 //MARK: - DataSource for productCollectionView
@@ -46,7 +46,7 @@ extension ProductDataSource {
     }
 }
 
-//MARK: - Calculations
+//MARK: - Calculations & 
 
 extension ProductDataSource {
 
@@ -67,7 +67,8 @@ extension ProductDataSource {
     }
     
     func addQuantity(indexPath: NSIndexPath) -> Int {
-        return ++products[indexPath.item].quantity!
+        products[indexPath.item].quantity! += 1
+        return products[indexPath.item].quantity!
     }
 }
 

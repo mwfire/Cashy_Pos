@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import Firebase
 
+// Product should conform to  NSCoding for persistance, since it was disabled, its not conforming to it. 
 
-
-class Product : NSObject, NSCoding {
+class Product : NSObject {
     // MARK: - Properties
     
     var name: String?
@@ -35,8 +36,16 @@ class Product : NSObject, NSCoding {
         }
     }
     
-    // MARK: - NSCoding
+    init(snapshot: FDataSnapshot) {
+        name = snapshot.value["name"] as? String
+        price = snapshot.value["price"] as? Double
+        image = UIImage(named: "img")
+        selected = snapshot.value["selected"] as? Bool
+        quantity = 0
+    }
     
+    // MARK: - NSCoding ( Disabled )
+    /*
     /// Archiving Paths
     static let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
     static let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("products")
@@ -57,6 +66,7 @@ class Product : NSObject, NSCoding {
         /// Must call designated initializer from self (Product)
         self.init(name: name!,price: price, image: image!)
     }
+ */
 }
 
 

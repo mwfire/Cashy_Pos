@@ -9,11 +9,10 @@
 import UIKit
 import Firebase
 
-
 class SalesViewController: UIViewController {
     // MARK: - Properties
     
-    var firebase = Firebase(url: "https://cashy-pos.firebaseio.com")
+    var firebase = Firebase(url: "https://cashy-pos.firebaseio.com/products")
     
     var productDataSource = ProductDataSource()
     
@@ -34,6 +33,20 @@ class SalesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        firebase.observeEventType(.Value, withBlock: {snapshot in
+            
+            var products = [Product]()
+            
+            for data in snapshot.children {
+                let product = Product(snapshot: data as! FDataSnapshot)
+                products.append(product)
+            }
+            
+            self.productDataSource.products = products
+            self.productCollectionView.reloadData()
+            
+        })
         
         // Disabled
         /*
@@ -74,6 +87,17 @@ class SalesViewController: UIViewController {
         if let addProductViewController = segue.sourceViewController as? AddProductViewController , let product = addProductViewController.product {
             /// **Step 2** Recives and Appends the instance of Product in the array of products in ProductDataSource.
             productDataSource.products.append(product)
+            
+            /// Uploads the product to firebase
+            let productRef = firebase.childByAppendingPath(product.name!.lowercaseString)
+    
+            let products = [
+                "name": product.name!,
+                "price": product.price!,
+                "selected": product.selected!,
+                                 ]
+
+            productRef.setValue(products)
             
             // Disabled
             /*

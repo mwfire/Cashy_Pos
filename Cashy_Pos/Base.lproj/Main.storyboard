@@ -191,7 +191,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="Qcv-Xv-dES" id="QdR-fB-hwi"/>
                         <outlet property="passwordTextField" destination="eEI-Tv-O5x" id="dG0-4c-hdh"/>
-                        <segue destination="kgY-cw-eBN" kind="showDetail" identifier="login" animates="NO" action="showViewController:sender:" id="585-71-nYl"/>
+                        <segue destination="kgY-cw-eBN" kind="showDetail" identifier="login" animates="NO" id="585-71-nYl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nkx-Jm-WQX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -323,7 +323,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zfV-8L-UFb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-504" y="1062"/>
+            <point key="canvasLocation" x="-404" y="1052"/>
         </scene>
         <!--Sales-->
         <scene sceneID="tne-QT-ifu">
@@ -743,7 +743,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2492" y="312"/>
+            <point key="canvasLocation" x="2298" y="312"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lWB-GA-Nsq">
@@ -779,7 +779,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jgz-zS-caA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1680" y="312"/>
+            <point key="canvasLocation" x="1616" y="312"/>
         </scene>
     </scenes>
     <resources>

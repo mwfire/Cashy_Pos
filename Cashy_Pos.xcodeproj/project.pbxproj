@@ -31,6 +31,10 @@
 		B08B7C161C6D140600A86584 /* UserSignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08B7C151C6D140600A86584 /* UserSignupViewController.swift */; };
 		B0B038B61C6EF3F100CDA0B0 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B038B51C6EF3F100CDA0B0 /* Alerts.swift */; };
 		B0B43B151C6D0E1F001C4088 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = B0B43B141C6D0E1F001C4088 /* Podfile */; };
+		B0ECBF761C797A060003D796 /* Sale.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ECBF751C797A060003D796 /* Sale.swift */; };
+		B0ECBF781C797BBA0003D796 /* SaleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ECBF771C797BBA0003D796 /* SaleDataSource.swift */; };
+		B0ECBF7A1C7983700003D796 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ECBF791C7983700003D796 /* SummaryViewController.swift */; };
+		B0ECBF7C1C7A84980003D796 /* ReceiptCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ECBF7B1C7A84980003D796 /* ReceiptCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +77,10 @@
 		B08B7C151C6D140600A86584 /* UserSignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSignupViewController.swift; sourceTree = "<group>"; };
 		B0B038B51C6EF3F100CDA0B0 /* Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		B0B43B141C6D0E1F001C4088 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		B0ECBF751C797A060003D796 /* Sale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sale.swift; sourceTree = "<group>"; };
+		B0ECBF771C797BBA0003D796 /* SaleDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaleDataSource.swift; sourceTree = "<group>"; };
+		B0ECBF791C7983700003D796 /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
+		B0ECBF7B1C7A84980003D796 /* ReceiptCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiptCell.swift; sourceTree = "<group>"; };
 		D4BF4FA9E549EC0D9F46B580 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -168,6 +176,8 @@
 			children = (
 				B08313711C69C11D00D0CB78 /* Product.swift */,
 				B08313721C69C11D00D0CB78 /* ProductDataSource.swift */,
+				B0ECBF751C797A060003D796 /* Sale.swift */,
+				B0ECBF771C797BBA0003D796 /* SaleDataSource.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -176,8 +186,10 @@
 			isa = PBXGroup;
 			children = (
 				B08313781C69C16F00D0CB78 /* ProductCell.swift */,
+				B0ECBF7B1C7A84980003D796 /* ReceiptCell.swift */,
 				B08313791C69C16F00D0CB78 /* SalesViewController.swift */,
 				B083137A1C69C16F00D0CB78 /* AddProductViewController.swift */,
+				B0ECBF791C7983700003D796 /* SummaryViewController.swift */,
 				B08B7C131C6D12A800A86584 /* UserLoginViewController.swift */,
 				B08B7C151C6D140600A86584 /* UserSignupViewController.swift */,
 			);
@@ -373,14 +385,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				B083133E1C69BE7A00D0CB78 /* AppDelegate.swift in Sources */,
+				B0ECBF7A1C7983700003D796 /* SummaryViewController.swift in Sources */,
 				B083137D1C69C16F00D0CB78 /* AddProductViewController.swift in Sources */,
 				B083137C1C69C16F00D0CB78 /* SalesViewController.swift in Sources */,
+				B0ECBF761C797A060003D796 /* Sale.swift in Sources */,
 				B08313741C69C11D00D0CB78 /* ProductDataSource.swift in Sources */,
 				B083137B1C69C16F00D0CB78 /* ProductCell.swift in Sources */,
 				B08313731C69C11D00D0CB78 /* Product.swift in Sources */,
+				B0ECBF781C797BBA0003D796 /* SaleDataSource.swift in Sources */,
 				B0B038B61C6EF3F100CDA0B0 /* Alerts.swift in Sources */,
 				B08B7C161C6D140600A86584 /* UserSignupViewController.swift in Sources */,
 				B08313761C69C13900D0CB78 /* Keys.swift in Sources */,
+				B0ECBF7C1C7A84980003D796 /* ReceiptCell.swift in Sources */,
 				B08B7C141C6D12A800A86584 /* UserLoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

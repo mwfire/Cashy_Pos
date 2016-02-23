@@ -15,6 +15,10 @@ class SalesViewController: UIViewController {
 //    var firebase = Firebase(url: "https://cashy-pos.firebaseio.com/products")
     
     var productDataSource = ProductDataSource()
+    var sales = [Sale]()
+    var total: Double?
+    var identifier = "summary"
+    var receipt: Int = 0001
     
     /// CollectionView
     @IBOutlet weak var productCollectionView: UICollectionView!
@@ -61,28 +65,31 @@ class SalesViewController: UIViewController {
     //MARK: - Actions
     
     @IBAction func payButtonAction(sender: UIButton) {
-        
+        // TODO: - Create the change alert
+        /// Creating an instance of sale
+        let sale = Sale(date: NSDate(), product: productDataSource.products, total: total!, receipt: receipt)
+        sales.append(sale)
+        receipt += 1
+        reset()
     }
     
     @IBAction func cancelButtonAction(sender: UIButton) {
-        for product in productDataSource.products {
-            if product.selected == true {
-                product.selected = false
-                product.quantity = 0
-            }
-            productCollectionView.reloadData()
-            productDataSource.total = 0.0
-            totalLabel.text = "$ 0.0"
-        }
+        reset()
     }
     
     @IBAction func refundButtonAction(sender: UIButton) {
 //        firebase.unauth()
-//        dismissViewControllerAnimated(true, completion: nil)
     }
 
-    // MARK: - Navigation    
-
+    // MARK: - Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == identifier {
+            let summaryViewController = segue.destinationViewController as! SummaryViewController
+            summaryViewController.saleDataSource.sales = sales
+        }
+    }
+    
     /// Unwind Segue
     @IBAction func unwindToSalesViewController(segue: UIStoryboardSegue) {
         if let addProductViewController = segue.sourceViewController as? AddProductViewController , let product = addProductViewController.product {
@@ -113,14 +120,26 @@ class SalesViewController: UIViewController {
     func update(total: Double) {
      totalLabel.text = "$ \(total)"
     }
+    
+    func reset(){
+        for product in productDataSource.products {
+            if product.selected == true {
+                product.selected = false
+                product.quantity = 0
+            }
+            productCollectionView.reloadData()
+            productDataSource.total = 0.0
+            totalLabel.text = "$ 0.0"
+        }
+    }
 }
 
-// MARK: - Delegate Extension
+// MARK: - Extension / Delegate Conformance
 
 extension SalesViewController: UICollectionViewDelegate {
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let total = productDataSource.addPrices(indexPath)
-        update(total)
+        total = productDataSource.addPrices(indexPath)
+        update(total!)
         
         let cell = productCollectionView.cellForItemAtIndexPath(indexPath) as! ProductCell
         let cellSelected = productDataSource.turnSelectedCellGreenAtIndexPath(indexPath)
@@ -133,11 +152,8 @@ extension SalesViewController: UICollectionViewDelegate {
         
         let quantity = productDataSource.addQuantity(indexPath)
         cell.quantityLabel.text = "\(quantity)"
-
     }
 }
-
-// MARK: - SalesViewController Extension
 
 extension SalesViewController: UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

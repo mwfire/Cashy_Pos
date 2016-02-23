@@ -7,17 +7,13 @@
 //
 
 import UIKit
-//import Firebase
 
 class SalesViewController: UIViewController {
     // MARK: - Properties
     
-//    var firebase = Firebase(url: "https://cashy-pos.firebaseio.com/products")
-    
     var productDataSource = ProductDataSource()
     var sales = [Sale]()
     var total: Double?
-    var identifier = "summary"
     var receipt: Int = 0001
     
     /// CollectionView
@@ -37,22 +33,6 @@ class SalesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // MARK: - Firebase ( Disabled )
-        //        firebase.observeEventType(.Value, withBlock: {snapshot in
-        //
-        //            var products = [Product]()
-        //
-        //            for data in snapshot.children {
-        //                let product = Product(snapshot: data as! FDataSnapshot)
-        //                products.append(product)
-        //            }
-        //
-        //            self.productDataSource.products = products
-        //            self.productCollectionView.reloadData()
-        //            
-        //        })
-        
         // Disabled
         /*
          /// Loads persitent data, and adds it to the products array in ProductDataSource
@@ -78,13 +58,13 @@ class SalesViewController: UIViewController {
     }
     
     @IBAction func refundButtonAction(sender: UIButton) {
-//        firebase.unauth()
+
     }
 
     // MARK: - Navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == identifier {
+        if segue.identifier == "summary" {
             let summaryViewController = segue.destinationViewController as! SummaryViewController
             summaryViewController.saleDataSource.sales = sales
         }
@@ -95,18 +75,7 @@ class SalesViewController: UIViewController {
         if let addProductViewController = segue.sourceViewController as? AddProductViewController , let product = addProductViewController.product {
             /// **Step 2** Recives and Appends the instance of Product in the array of products in ProductDataSource.
             productDataSource.products.append(product)
-            
-//            /// Uploads the product to firebase
-//            let productRef = firebase.childByAppendingPath(product.name!.lowercaseString)
-//    
-//            let products = [
-//                "name": product.name!,
-//                "price": product.price!,
-//                "selected": product.selected!,
-//                                 ]
-//
-//            productRef.setValue(products)
-            
+
             // Disabled
             /*
             /// Saves persistant data
@@ -148,6 +117,7 @@ extension SalesViewController: UICollectionViewDelegate {
             cell.greenImage.hidden = false
             cell.quantityLabel.hidden = false
             cell.blurEffect.hidden = true
+            cell.blurEffectName.hidden = true
         }
         
         let quantity = productDataSource.addQuantity(indexPath)
@@ -180,12 +150,19 @@ extension SalesViewController: UICollectionViewDataSource {
             return cell
         }
         
+        guard let name = productDataSource.products[indexPath.item].name else {
+            return cell
+        }
+        
         cell.blurEffect.hidden = hidden
+        cell.blurEffectName.hidden = hidden
         cell.greenImage.hidden = !hidden
         cell.quantityLabel.hidden = !hidden
         cell.productImage.image = productImage
         cell.quantityLabel.text = "\(productQuantity)"
         cell.priceLabel.text = "$ \(productPrice)"
+        cell.nameLabel.text = name
+        
         
         return cell
     }

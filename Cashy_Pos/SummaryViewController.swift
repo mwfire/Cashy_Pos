@@ -21,18 +21,42 @@ class SummaryViewController: UIViewController {
     @IBOutlet weak var totalLabel: UILabel!
     
     override func viewWillAppear(animated: Bool) {
-        transactionLabel.text = "\(saleDataSource.numbersOfItems())"
+        updateView()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    // MARK: - Helper Methods
+    
+    func updateView(){
+        var totalSale = 0.0
+        var totalRefund = 0.0
+        var numberOfRefunds = 0
+        
+        for sale in saleDataSource.sales {
+            if sale.refund != true {
+                totalSale += sale.total!
+            }
+        }
+        
+        for refund in saleDataSource.sales {
+            if refund.refund == true {
+                totalRefund -= refund.total!
+                numberOfRefunds += 1
+            }
+        }
+        salesLabel.text = "$\(totalSale)"
+        refundsLabel.text = "\(numberOfRefunds) / $\(totalRefund)"
+        totalLabel.text = "$\(totalSale + totalRefund) "
+        transactionLabel.text = "\(saleDataSource.numbersOfItems())"
     }
 }
 
 // MARK - Extensions
 extension SummaryViewController: UITableViewDataSource {
     
-
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return saleDataSource.numbersOfItems()
     }
@@ -41,7 +65,7 @@ extension SummaryViewController: UITableViewDataSource {
         let cell = receiptTableView.dequeueReusableCellWithIdentifier("receiptCell") as! ReceiptCell
         
         let sale = saleDataSource.sales[indexPath.row]
-
+        
         guard let product = sale.products, name = product[0].name  else {
             return cell
         }
@@ -54,9 +78,21 @@ extension SummaryViewController: UITableViewDataSource {
             return cell
         }
         
+        if sale.refund == true {
+            cell.receiptLabel.textColor = UIColor.redColor()
+            cell.totalLabel.textColor = UIColor.redColor()
+            cell.itemLabel.textColor = UIColor.redColor()
+            cell.receiptLabel.text = "Refund: \(receipt)"
+        } else {
+            cell.receiptLabel.textColor = UIColor(red: 111/255, green: 111/255, blue: 111/255, alpha: 255)
+            cell.totalLabel.textColor = UIColor(red: 76/255, green: 76/255, blue: 76/255, alpha: 255)
+            cell.itemLabel.textColor = UIColor(red: 76/255, green: 76/255, blue: 76/255, alpha: 255)
+            cell.receiptLabel.text = "Receipt: \(receipt)"
+        }
+        
         cell.itemLabel.text = "Item: \(name)"
         cell.totalLabel.text = "$\(total)"
-        cell.receiptLabel.text = "Receipt: \(receipt)"
+        
         return cell
     }
 }

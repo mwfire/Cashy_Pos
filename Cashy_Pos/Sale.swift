@@ -8,17 +8,19 @@
 
 import Foundation
 
-class Sale {
+struct Sale {
     
     var date: NSDate?
     var products: [Product]?
     var total: Double?
     var receipt: Int?
+    var refund: Bool
     
-    init(date: NSDate, product: [Product], total: Double, receipt: Int) {
+    init(date: NSDate, product: [Product], total: Double, receipt: Int, refund: Bool) {
         self.date = date
         self.products = product
         self.total = total
         self.receipt = receipt
+        self.refund = refund
     }
 }

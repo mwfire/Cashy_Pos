@@ -11,6 +11,8 @@ import UIKit
 
 class AddProductViewController: UIViewController {
     
+    // MARK: - Properties
+    
     var product: Product?
     
     @IBOutlet weak var closeButton: UIButton!

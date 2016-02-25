@@ -17,7 +17,7 @@ struct ProductDataSource {
     var total = 0.00
 
     //MARK - Saving & Loading data methods ( Disabled )
-    /*
+    
     
     func saveProducts() {
         let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(products, toFile: Product.ArchiveURL.path!)
@@ -30,7 +30,7 @@ struct ProductDataSource {
     func loadProducts() -> [Product]? {
         return NSKeyedUnarchiver.unarchiveObjectWithFile(Product.ArchiveURL.path!) as? [Product]
     }
- */
+
 }
 
 //MARK: - DataSource for productCollectionView

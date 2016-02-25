@@ -14,7 +14,8 @@ class SalesViewController: UIViewController {
     var productDataSource = ProductDataSource()
     var sales = [Sale]()
     var total: Double?
-    var receipt: Int = 0001
+    var receipt: Int = 01
+    var refundReceipt: Int = 01
     
     /// CollectionView
     @IBOutlet weak var productCollectionView: UICollectionView!
@@ -33,32 +34,82 @@ class SalesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Disabled
-        /*
+        
          /// Loads persitent data, and adds it to the products array in ProductDataSource
          if let products = productDataSource.loadProducts()  {
          productDataSource.products += products
          }
-         */
     }
     
     //MARK: - Actions
     
     @IBAction func payButtonAction(sender: UIButton) {
-        // TODO: - Create the change alert
-        /// Creating an instance of sale
-        let sale = Sale(date: NSDate(), product: productDataSource.products, total: total!, receipt: receipt)
-        sales.append(sale)
-        receipt += 1
-        reset()
+        if total <= 0 {
+            showAlertWith("Selection Required", message: "Please select a product to sale", style: .Alert, button: "Ok", button2: "", handler: nil)
+        } else {
+        
+        // Amount Alert
+        let amountAlert = UIAlertController(title: "Exchange", message: "Enter amount you received", preferredStyle: .Alert)
+        
+        amountAlert.addTextFieldWithConfigurationHandler(nil)
+        
+        let cancelButton = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        let okButton = UIAlertAction(title: "Ok", style: .Default) { (ACTION) in
+            guard let textField = amountAlert.textFields else {
+                return
+            }
+            
+            guard let amountString = textField[0].text else {
+                return
+            }
+            
+            guard let amount = Double(amountString) else {
+                return
+            }
+            
+            let totalChange = amount - self.total!
+            
+            // Change Alert
+            let changeAlert = UIAlertController(title: "Return $\(totalChange)", message: "", preferredStyle: .Alert)
+            changeAlert.addAction(UIAlertAction(title: "Go Back", style: .Cancel, handler: nil))
+            changeAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (ACTION) in
+                /// Creating an instance of sale
+                let sale = Sale(date: NSDate(), product: self.productDataSource.products, total: self.total!, receipt: self.receipt, refund: false)
+                self.sales.append(sale)
+                self.receipt += 1
+                self.reset()
+            }))
+            self.presentViewController(changeAlert, animated: true, completion: nil)
+        }
+        
+        amountAlert.addAction(okButton)
+        amountAlert.addAction(cancelButton)
+        presentViewController(amountAlert, animated: true, completion: nil)
+        }
     }
     
     @IBAction func cancelButtonAction(sender: UIButton) {
-        reset()
+        if total <= 0{
+            showAlertWith("Nothing to Cancel", message: "", style: .Alert, button: "Ok", button2: "", handler: nil)
+        } else {
+        showAlertWith("Cancel Sale?", message: "", style: .Alert, button: "Cancel", button2: "Ok", handler: { ACTION -> Void in
+        self.reset()
+        })
+        }
     }
     
     @IBAction func refundButtonAction(sender: UIButton) {
-
+        /// Creating an instance of refund
+        if total <= 0 {
+            showAlertWith("Selection Required", message: "Please select a product to refund", style: .Alert, button: "Ok", button2: "", handler: nil)
+        } else {
+            showAlertWith("Refund", message: "Continue with refund?", style: .Alert, button: "Cancel", button2: "Ok") { (ACTION) -> Void in
+                let refund = Sale(date: NSDate(), product: self.productDataSource.products, total: self.total!, receipt: self.refundReceipt, refund: true)
+                self.sales.append(refund)
+                self.refundReceipt += 1
+                self.reset()
+            }
+        }
     }
 
     // MARK: - Navigation
@@ -75,12 +126,9 @@ class SalesViewController: UIViewController {
         if let addProductViewController = segue.sourceViewController as? AddProductViewController , let product = addProductViewController.product {
             /// **Step 2** Recives and Appends the instance of Product in the array of products in ProductDataSource.
             productDataSource.products.append(product)
-
-            // Disabled
-            /*
+            
             /// Saves persistant data
             productDataSource.saveProducts()
-            */
         }
     }
     
@@ -98,8 +146,22 @@ class SalesViewController: UIViewController {
             }
             productCollectionView.reloadData()
             productDataSource.total = 0.0
+            total = 0.0
             totalLabel.text = "$ 0.0"
         }
+    }
+    
+    func showAlertWith(title: String, message: String, style: UIAlertControllerStyle, button: String, button2: String, handler: ((UIAlertAction) -> Void)?) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: style)
+        let button = UIAlertAction(title: button, style: .Cancel, handler: nil)
+
+        alert.addAction(button)
+        if button2 != "" {
+        let button2 = UIAlertAction(title: button2, style: .Default, handler: handler)
+         alert.addAction(button2)
+        }
+        
+        presentViewController(alert, animated: true, completion: nil)
     }
 }
 
@@ -125,6 +187,7 @@ extension SalesViewController: UICollectionViewDelegate {
     }
 }
 
+/// DataSource conformance
 extension SalesViewController: UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return productDataSource.numbersOfItems()
@@ -162,7 +225,6 @@ extension SalesViewController: UICollectionViewDataSource {
         cell.quantityLabel.text = "\(productQuantity)"
         cell.priceLabel.text = "$ \(productPrice)"
         cell.nameLabel.text = name
-        
         
         return cell
     }

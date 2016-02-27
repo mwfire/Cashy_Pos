@@ -15,9 +15,6 @@ struct ProductDataSource {
     /// **Step 3** Instances of product are appended to this Array.
     var products = [Product]()
     var total = 0.00
-
-    //MARK - Saving & Loading data methods ( Disabled )
-    
     
     func saveProducts() {
         let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(products, toFile: Product.ArchiveURL.path!)
@@ -70,6 +67,18 @@ extension ProductDataSource {
         products[indexPath.item].quantity! += 1
         return products[indexPath.item].quantity!
     }
+    
+    func getProductsWithQuantity() -> [Product] {
+        var products = [Product]()
+        for product in self.products {
+            if product.quantity > 0 {
+                products.append(product)
+                print("Quantity ProductDataSource: \(product.quantity!) , Name ProductDataSource: \(product.name!)")
+            }
+        }
+        return products
+    }
+    
 }
 
 

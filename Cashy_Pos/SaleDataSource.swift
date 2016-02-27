@@ -8,8 +8,10 @@
 
 import UIKit
 
+
 struct SaleDataSource {
-   
+    // Properties
+
     var sales = [Sale]()
     
     func numbersOfSections() -> Int {
@@ -18,9 +20,5 @@ struct SaleDataSource {
     
     func numbersOfItems() -> Int {
         return sales.count
-    }
-    
-    func cellRefund(indexPath: NSIndexPath) -> Bool {
-        return sales[indexPath.row].refund
     }
 }

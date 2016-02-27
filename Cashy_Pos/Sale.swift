@@ -13,12 +13,12 @@ struct Sale {
     var date: NSDate?
     var products: [Product]?
     var total: Double?
-    var receipt: Int?
     var refund: Bool
+    var receipt: Int?
     
-    init(date: NSDate, product: [Product], total: Double, receipt: Int, refund: Bool) {
+    init(date: NSDate, products: [Product], total: Double, receipt: Int, refund: Bool) {
         self.date = date
-        self.products = product
+        self.products = products
         self.total = total
         self.receipt = receipt
         self.refund = refund

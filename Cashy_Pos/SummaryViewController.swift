@@ -66,7 +66,7 @@ extension SummaryViewController: UITableViewDataSource {
         
         let sale = saleDataSource.sales[indexPath.row]
         
-        guard let product = sale.products, name = product[0].name  else {
+        guard let products = sale.products  else {
             return cell
         }
         
@@ -90,7 +90,9 @@ extension SummaryViewController: UITableViewDataSource {
             cell.receiptLabel.text = "Receipt: \(receipt)"
         }
         
-        cell.itemLabel.text = "Item: \(name)"
+        for product in products {
+            cell.itemLabel.text = "Item: \(product.name!)"
+        }
         cell.totalLabel.text = "$\(total)"
         
         return cell
@@ -100,3 +102,4 @@ extension SummaryViewController: UITableViewDataSource {
 extension SummaryViewController: UITableViewDelegate {
     
 }
+

@@ -35,11 +35,6 @@ class SalesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-         /// Loads persitent data, and adds it to the products array in ProductDataSource
-         if let products = productDataSource.loadProducts()  {
-         productDataSource.products += products
-         }
     }
     
     //MARK: - Actions
@@ -52,6 +47,7 @@ class SalesViewController: UIViewController {
         // Amount Alert
         let amountAlert = UIAlertController(title: "Exchange", message: "Enter amount you received", preferredStyle: .Alert)
         amountAlert.addTextFieldWithConfigurationHandler(nil)
+            amountAlert.textFields![0].keyboardType = .DecimalPad
         
         let cancelButton = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
         let okButton = UIAlertAction(title: "Ok", style: .Default) { (ACTION) in
@@ -69,10 +65,8 @@ class SalesViewController: UIViewController {
                 /// Creating an instance of sale
                 let sale = Sale(date: NSDate(), products: self.productDataSource.getProductsWithQuantity(), total: self.total!, receipt: self.receipt, refund: false)
                 self.sales.append(sale)
-                print("Quantity PayButton: \(sale.products![0].quantity!) , Name PayButton: \(sale.products![0].name!)")
-                print("Quantity Sales: \(self.sales[0].products![0].quantity!), Name Sales: \(self.sales[0].products![0].quantity!)")
                 self.receipt += 1
-                self.reset()
+                self.resetView()
             }))
             self.presentViewController(changeAlert, animated: true, completion: nil)
         }
@@ -88,7 +82,7 @@ class SalesViewController: UIViewController {
             showAlert("Nothing to Cancel", message: "", style: .Alert, button: "Ok", button2: "", handler: nil)
         } else {
             showAlert("Cancel Sale?", message: "", style: .Alert, button: "Cancel", button2: "Ok", handler: { ACTION -> Void in
-                self.reset()
+                self.resetView()
             })
         }
     }
@@ -102,7 +96,7 @@ class SalesViewController: UIViewController {
                 let refund = Sale(date: NSDate(), products: self.productDataSource.getProductsWithQuantity(), total: self.total!, receipt: self.refundReceipt, refund: true)
                 self.sales.append(refund)
                 self.refundReceipt += 1
-                self.reset()
+                self.resetView()
             }
         }
     }
@@ -112,7 +106,6 @@ class SalesViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "summary" {
             let summaryViewController = segue.destinationViewController as! SummaryViewController
-            print("Quantity Segue:\(sales[0].products![0].quantity!) , Name Segue: \(sales[0].products![0].name!)")
             summaryViewController.saleDataSource.sales = sales
         }
     }
@@ -122,29 +115,21 @@ class SalesViewController: UIViewController {
         if let addProductViewController = segue.sourceViewController as? AddProductViewController , let product = addProductViewController.product {
             /// **Step 2** Recives and Appends the instance of Product in the array of products in ProductDataSource.
             productDataSource.products.append(product)
-            
-            /// Saves persistant data
-            productDataSource.saveProducts()
         }
     }
     
     //MARK: - Helper methods
     
-    func update(total: Double) {
+    func updateTotalLabel(total: Double) {
      totalLabel.text = "$ \(total)"
     }
     
-    func reset(){
-        for product in productDataSource.products {
-            if product.selected == true {
-                product.selected = false
-                product.quantity = 0
-            }
-            productCollectionView.reloadData()
-            productDataSource.total = 0.0
-            self.total = 0.0
-            totalLabel.text = "$ 0.0"
-        }
+    func resetView(){
+        productDataSource.resetProducts()
+        productCollectionView.reloadData()
+        
+        self.total = productDataSource.total
+        updateTotalLabel(total!)
     }
     
     func showAlert(title: String, message: String, style: UIAlertControllerStyle, button: String, button2: String, handler: ((UIAlertAction) -> Void)?) {
@@ -166,7 +151,7 @@ class SalesViewController: UIViewController {
 extension SalesViewController: UICollectionViewDelegate {
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         total = productDataSource.addPrices(indexPath)
-        update(total!)
+        updateTotalLabel(total!)
         
         let cell = productCollectionView.cellForItemAtIndexPath(indexPath) as! ProductCell
         let cellSelected = productDataSource.turnSelectedCellGreenAtIndexPath(indexPath)
@@ -175,15 +160,10 @@ extension SalesViewController: UICollectionViewDelegate {
             cell.greenImage.hidden = false
             cell.quantityLabel.hidden = false
             cell.blurEffect.hidden = true
-            cell.blurEffectName.hidden = true
         }
         
         let quantity = productDataSource.addQuantity(indexPath)
         cell.quantityLabel.text = "\(quantity)"
-        
-        /// Creates an instance of a product, and its added to the local products array
-//        let product = Product(name: productDataSource.products[indexPath.row].name!, price: productDataSource.products[indexPath.row].price!, image: productDataSource.products[indexPath.row].image!)
-//        self.products.append(product!)
     }
 }
 
@@ -218,7 +198,6 @@ extension SalesViewController: UICollectionViewDataSource {
         }
         
         cell.blurEffect.hidden = hidden
-        cell.blurEffectName.hidden = hidden
         cell.greenImage.hidden = !hidden
         cell.quantityLabel.hidden = !hidden
         cell.productImage.image = productImage

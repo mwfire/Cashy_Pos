@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class SummaryViewController: UIViewController {
     
     // MARK: - Properties
@@ -26,6 +27,15 @@ class SummaryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    // MARK: - Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "receipt" {
+            let receiptViewController = segue.destinationViewController as! ReceiptViewController
+            receiptViewController.sales = saleDataSource.sales
+        }
     }
     
     // MARK: - Helper Methods
@@ -54,7 +64,7 @@ class SummaryViewController: UIViewController {
     }
 }
 
-// MARK - Extensions
+// MARK: - Extensions
 extension SummaryViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -62,7 +72,7 @@ extension SummaryViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = receiptTableView.dequeueReusableCellWithIdentifier("receiptCell") as! ReceiptCell
+        let cell = receiptTableView.dequeueReusableCellWithIdentifier("cell") as! ReceiptCell
         
         let sale = saleDataSource.sales[indexPath.row]
         
@@ -100,6 +110,6 @@ extension SummaryViewController: UITableViewDataSource {
 }
 
 extension SummaryViewController: UITableViewDelegate {
-    
+
 }
 

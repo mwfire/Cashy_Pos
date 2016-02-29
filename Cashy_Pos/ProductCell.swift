@@ -15,7 +15,6 @@ class ProductCell: UICollectionViewCell {
     @IBOutlet weak var greenImage: UIImageView!
     @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var blurEffect: UIImageView!
-    @IBOutlet weak var blurEffectName: UIImageView!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
 
@@ -27,7 +26,6 @@ class ProductCell: UICollectionViewCell {
         super.layoutSubviews()
         self.layer.cornerRadius = 8.0
         blurEffect.layer.cornerRadius = 5.0
-        blurEffectName.layer.cornerRadius = 5.0
     }
     
 }

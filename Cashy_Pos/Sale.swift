@@ -9,6 +9,7 @@
 import Foundation
 
 struct Sale {
+    // Properties
     
     var date: NSDate?
     var products: [Product]?

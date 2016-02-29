@@ -21,6 +21,7 @@ class ReceiptCell: UITableViewCell {
     }
     
     override func layoutSubviews() {
+        /// Makes the corners of the cell round, and the height smaller.
         self.layer.cornerRadius = 8
         self.bounds.size.height = 60
     }

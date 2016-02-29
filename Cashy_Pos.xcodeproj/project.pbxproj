@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		ACAD5C5C61FC160AA50C28F7 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB1C24AAE15293BE9F3F1E9D /* Pods.framework */; };
+		B046E03A1C8342F00019F6FA /* ReceiptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B046E0391C8342F00019F6FA /* ReceiptViewController.swift */; };
+		B046E03C1C8346E50019F6FA /* ReceiptDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B046E03B1C8346E50019F6FA /* ReceiptDetailCell.swift */; };
 		B083133E1C69BE7A00D0CB78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B083133D1C69BE7A00D0CB78 /* AppDelegate.swift */; };
 		B08313431C69BE7A00D0CB78 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B08313411C69BE7A00D0CB78 /* Main.storyboard */; };
 		B08313451C69BE7A00D0CB78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B08313441C69BE7A00D0CB78 /* Assets.xcassets */; };
@@ -47,6 +49,8 @@
 /* Begin PBXFileReference section */
 		67E9818F6CEA5ABC467C55C9 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		AB1C24AAE15293BE9F3F1E9D /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B046E0391C8342F00019F6FA /* ReceiptViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiptViewController.swift; sourceTree = "<group>"; };
+		B046E03B1C8346E50019F6FA /* ReceiptDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiptDetailCell.swift; sourceTree = "<group>"; };
 		B083133A1C69BE7A00D0CB78 /* Cashy_Pos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cashy_Pos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B083133D1C69BE7A00D0CB78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B08313421C69BE7A00D0CB78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -106,6 +110,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		B046E03E1C8375390019F6FA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B08313781C69C16F00D0CB78 /* ProductCell.swift */,
+				B0ECBF7B1C7A84980003D796 /* ReceiptCell.swift */,
+				B046E03B1C8346E50019F6FA /* ReceiptDetailCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		B08313311C69BE7A00D0CB78 = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +146,7 @@
 			children = (
 				B08313701C69C0EF00D0CB78 /* Models */,
 				B08313771C69C15500D0CB78 /* Controllers */,
+				B046E03E1C8375390019F6FA /* Views */,
 				B083FCB31C6BF53C00DB80E0 /* Others */,
 				B083FCB21C6BF52C00DB80E0 /* Layouts */,
 				B08313441C69BE7A00D0CB78 /* Assets.xcassets */,
@@ -179,11 +194,10 @@
 		B08313771C69C15500D0CB78 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B08313781C69C16F00D0CB78 /* ProductCell.swift */,
-				B0ECBF7B1C7A84980003D796 /* ReceiptCell.swift */,
 				B08313791C69C16F00D0CB78 /* SalesViewController.swift */,
 				B083137A1C69C16F00D0CB78 /* AddProductViewController.swift */,
 				B0ECBF791C7983700003D796 /* SummaryViewController.swift */,
+				B046E0391C8342F00019F6FA /* ReceiptViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -384,6 +398,8 @@
 				B083137B1C69C16F00D0CB78 /* ProductCell.swift in Sources */,
 				B08313731C69C11D00D0CB78 /* Product.swift in Sources */,
 				B0ECBF781C797BBA0003D796 /* SaleDataSource.swift in Sources */,
+				B046E03C1C8346E50019F6FA /* ReceiptDetailCell.swift in Sources */,
+				B046E03A1C8342F00019F6FA /* ReceiptViewController.swift in Sources */,
 				B08313761C69C13900D0CB78 /* Keys.swift in Sources */,
 				B0ECBF7C1C7A84980003D796 /* ReceiptCell.swift in Sources */,
 			);

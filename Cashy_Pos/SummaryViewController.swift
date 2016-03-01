@@ -34,7 +34,12 @@ class SummaryViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "receipt" {
             let receiptViewController = segue.destinationViewController as! ReceiptViewController
-            receiptViewController.sales = saleDataSource.sales
+            
+            if let selectedSaleCell = sender  as? ReceiptCell {
+                let indexPath = receiptTableView.indexPathForCell(selectedSaleCell)!
+                let selectedSale = saleDataSource.sales[indexPath.item]
+                receiptViewController.sales.append(selectedSale)
+            }
         }
     }
     

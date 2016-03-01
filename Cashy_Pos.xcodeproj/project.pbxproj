@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		ACAD5C5C61FC160AA50C28F7 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB1C24AAE15293BE9F3F1E9D /* Pods.framework */; };
+		B046E03A1C8342F00019F6FA /* ReceiptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B046E0391C8342F00019F6FA /* ReceiptViewController.swift */; };
+		B046E03C1C8346E50019F6FA /* ReceiptDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B046E03B1C8346E50019F6FA /* ReceiptDetailCell.swift */; };
 		B083133E1C69BE7A00D0CB78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B083133D1C69BE7A00D0CB78 /* AppDelegate.swift */; };
 		B08313431C69BE7A00D0CB78 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B08313411C69BE7A00D0CB78 /* Main.storyboard */; };
 		B08313451C69BE7A00D0CB78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B08313441C69BE7A00D0CB78 /* Assets.xcassets */; };
@@ -27,10 +29,11 @@
 		B083137B1C69C16F00D0CB78 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08313781C69C16F00D0CB78 /* ProductCell.swift */; };
 		B083137C1C69C16F00D0CB78 /* SalesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08313791C69C16F00D0CB78 /* SalesViewController.swift */; };
 		B083137D1C69C16F00D0CB78 /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B083137A1C69C16F00D0CB78 /* AddProductViewController.swift */; };
-		B08B7C141C6D12A800A86584 /* UserLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08B7C131C6D12A800A86584 /* UserLoginViewController.swift */; };
-		B08B7C161C6D140600A86584 /* UserSignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08B7C151C6D140600A86584 /* UserSignupViewController.swift */; };
-		B0B038B61C6EF3F100CDA0B0 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B038B51C6EF3F100CDA0B0 /* Alerts.swift */; };
 		B0B43B151C6D0E1F001C4088 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = B0B43B141C6D0E1F001C4088 /* Podfile */; };
+		B0ECBF761C797A060003D796 /* Sale.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ECBF751C797A060003D796 /* Sale.swift */; };
+		B0ECBF781C797BBA0003D796 /* SaleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ECBF771C797BBA0003D796 /* SaleDataSource.swift */; };
+		B0ECBF7A1C7983700003D796 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ECBF791C7983700003D796 /* SummaryViewController.swift */; };
+		B0ECBF7C1C7A84980003D796 /* ReceiptCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ECBF7B1C7A84980003D796 /* ReceiptCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +49,8 @@
 /* Begin PBXFileReference section */
 		67E9818F6CEA5ABC467C55C9 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		AB1C24AAE15293BE9F3F1E9D /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B046E0391C8342F00019F6FA /* ReceiptViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiptViewController.swift; sourceTree = "<group>"; };
+		B046E03B1C8346E50019F6FA /* ReceiptDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiptDetailCell.swift; sourceTree = "<group>"; };
 		B083133A1C69BE7A00D0CB78 /* Cashy_Pos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cashy_Pos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B083133D1C69BE7A00D0CB78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B08313421C69BE7A00D0CB78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -69,10 +74,11 @@
 		B08313781C69C16F00D0CB78 /* ProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		B08313791C69C16F00D0CB78 /* SalesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SalesViewController.swift; sourceTree = "<group>"; };
 		B083137A1C69C16F00D0CB78 /* AddProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
-		B08B7C131C6D12A800A86584 /* UserLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLoginViewController.swift; sourceTree = "<group>"; };
-		B08B7C151C6D140600A86584 /* UserSignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSignupViewController.swift; sourceTree = "<group>"; };
-		B0B038B51C6EF3F100CDA0B0 /* Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		B0B43B141C6D0E1F001C4088 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		B0ECBF751C797A060003D796 /* Sale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sale.swift; sourceTree = "<group>"; };
+		B0ECBF771C797BBA0003D796 /* SaleDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaleDataSource.swift; sourceTree = "<group>"; };
+		B0ECBF791C7983700003D796 /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
+		B0ECBF7B1C7A84980003D796 /* ReceiptCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiptCell.swift; sourceTree = "<group>"; };
 		D4BF4FA9E549EC0D9F46B580 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,6 +110,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		B046E03E1C8375390019F6FA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B08313781C69C16F00D0CB78 /* ProductCell.swift */,
+				B0ECBF7B1C7A84980003D796 /* ReceiptCell.swift */,
+				B046E03B1C8346E50019F6FA /* ReceiptDetailCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		B08313311C69BE7A00D0CB78 = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +146,7 @@
 			children = (
 				B08313701C69C0EF00D0CB78 /* Models */,
 				B08313771C69C15500D0CB78 /* Controllers */,
+				B046E03E1C8375390019F6FA /* Views */,
 				B083FCB31C6BF53C00DB80E0 /* Others */,
 				B083FCB21C6BF52C00DB80E0 /* Layouts */,
 				B08313441C69BE7A00D0CB78 /* Assets.xcassets */,
@@ -168,6 +185,8 @@
 			children = (
 				B08313711C69C11D00D0CB78 /* Product.swift */,
 				B08313721C69C11D00D0CB78 /* ProductDataSource.swift */,
+				B0ECBF751C797A060003D796 /* Sale.swift */,
+				B0ECBF771C797BBA0003D796 /* SaleDataSource.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -175,11 +194,10 @@
 		B08313771C69C15500D0CB78 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B08313781C69C16F00D0CB78 /* ProductCell.swift */,
 				B08313791C69C16F00D0CB78 /* SalesViewController.swift */,
 				B083137A1C69C16F00D0CB78 /* AddProductViewController.swift */,
-				B08B7C131C6D12A800A86584 /* UserLoginViewController.swift */,
-				B08B7C151C6D140600A86584 /* UserSignupViewController.swift */,
+				B0ECBF791C7983700003D796 /* SummaryViewController.swift */,
+				B046E0391C8342F00019F6FA /* ReceiptViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -197,7 +215,6 @@
 			isa = PBXGroup;
 			children = (
 				B08313751C69C13900D0CB78 /* Keys.swift */,
-				B0B038B51C6EF3F100CDA0B0 /* Alerts.swift */,
 				B083133D1C69BE7A00D0CB78 /* AppDelegate.swift */,
 			);
 			name = Others;
@@ -373,15 +390,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				B083133E1C69BE7A00D0CB78 /* AppDelegate.swift in Sources */,
+				B0ECBF7A1C7983700003D796 /* SummaryViewController.swift in Sources */,
 				B083137D1C69C16F00D0CB78 /* AddProductViewController.swift in Sources */,
 				B083137C1C69C16F00D0CB78 /* SalesViewController.swift in Sources */,
+				B0ECBF761C797A060003D796 /* Sale.swift in Sources */,
 				B08313741C69C11D00D0CB78 /* ProductDataSource.swift in Sources */,
 				B083137B1C69C16F00D0CB78 /* ProductCell.swift in Sources */,
 				B08313731C69C11D00D0CB78 /* Product.swift in Sources */,
-				B0B038B61C6EF3F100CDA0B0 /* Alerts.swift in Sources */,
-				B08B7C161C6D140600A86584 /* UserSignupViewController.swift in Sources */,
+				B0ECBF781C797BBA0003D796 /* SaleDataSource.swift in Sources */,
+				B046E03C1C8346E50019F6FA /* ReceiptDetailCell.swift in Sources */,
+				B046E03A1C8342F00019F6FA /* ReceiptViewController.swift in Sources */,
 				B08313761C69C13900D0CB78 /* Keys.swift in Sources */,
-				B08B7C141C6D12A800A86584 /* UserLoginViewController.swift in Sources */,
+				B0ECBF7C1C7A84980003D796 /* ReceiptCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

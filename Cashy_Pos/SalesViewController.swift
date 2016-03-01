@@ -7,14 +7,16 @@
 //
 
 import UIKit
-import Firebase
+
 
 class SalesViewController: UIViewController {
     // MARK: - Properties
     
-    var firebase = Firebase(url: "https://cashy-pos.firebaseio.com/products")
-    
     var productDataSource = ProductDataSource()
+    var sales = [Sale]()
+    var total: Double?
+    var receipt: Int = 01
+    var refundReceipt: Int = 01
     
     /// CollectionView
     @IBOutlet weak var productCollectionView: UICollectionView!
@@ -33,93 +35,123 @@ class SalesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        firebase.observeEventType(.Value, withBlock: {snapshot in
-            
-            var products = [Product]()
-            
-            for data in snapshot.children {
-                let product = Product(snapshot: data as! FDataSnapshot)
-                products.append(product)
-            }
-            
-            self.productDataSource.products = products
-            self.productCollectionView.reloadData()
-            
-        })
-        
-        // Disabled
-        /*
-         /// Loads persitent data, and adds it to the products array in ProductDataSource
-         if let products = productDataSource.loadProducts()  {
-         productDataSource.products += products
-         }
-         */
     }
     
     //MARK: - Actions
     
     @IBAction func payButtonAction(sender: UIButton) {
+        if total <= 0 {
+            showAlert("Selection Required", message: "Please select a product to sale", style: .Alert, button: "Ok", button2: "", handler: nil)
+        } else {
         
+        // Amount Alert
+        let amountAlert = UIAlertController(title: "Exchange", message: "Enter amount you received", preferredStyle: .Alert)
+        amountAlert.addTextFieldWithConfigurationHandler(nil)
+            amountAlert.textFields![0].keyboardType = .DecimalPad
+        
+        let cancelButton = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        let okButton = UIAlertAction(title: "Ok", style: .Default) { (ACTION) in
+            guard let textField = amountAlert.textFields, let amountString = textField[0].text, let amount = Double(amountString) else {
+                return
+            }
+            
+            let totalChange = amount - self.total!
+            
+            // Change Alert
+            let changeAlert = UIAlertController(title: "Return $\(totalChange)", message: "", preferredStyle: .Alert)
+            changeAlert.addAction(UIAlertAction(title: "Go Back", style: .Cancel, handler: nil))
+            changeAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (ACTION) in
+            
+                /// Creating an instance of sale
+                let sale = Sale(date: NSDate(), products: self.productDataSource.getProductsWithQuantity(), total: self.total!, receipt: self.receipt, refund: false)
+                self.sales.append(sale)
+                self.receipt += 1
+                self.resetView()
+            }))
+            self.presentViewController(changeAlert, animated: true, completion: nil)
+        }
+        
+        amountAlert.addAction(okButton)
+        amountAlert.addAction(cancelButton)
+        presentViewController(amountAlert, animated: true, completion: nil)
+        }
     }
     
     @IBAction func cancelButtonAction(sender: UIButton) {
-        for product in productDataSource.products {
-            if product.selected == true {
-                product.selected = false
-                product.quantity = 0
-            }
-            productCollectionView.reloadData()
-            productDataSource.total = 0.0
-            totalLabel.text = "$ 0.0"
+        if total <= 0 {
+            showAlert("Nothing to Cancel", message: "", style: .Alert, button: "Ok", button2: "", handler: nil)
+        } else {
+            showAlert("Cancel Sale?", message: "", style: .Alert, button: "Cancel", button2: "Ok", handler: { ACTION -> Void in
+                self.resetView()
+            })
         }
     }
     
     @IBAction func refundButtonAction(sender: UIButton) {
-        firebase.unauth()
-        dismissViewControllerAnimated(true, completion: nil)
+        /// Creating an instance of refund
+        if total <= 0 {
+            showAlert("Selection Required", message: "Please select a product to refund", style: .Alert, button: "Ok", button2: "", handler: nil)
+        } else {
+            showAlert("Refund", message: "Continue with refund?", style: .Alert, button: "Cancel", button2: "Ok") { (ACTION) -> Void in
+                let refund = Sale(date: NSDate(), products: self.productDataSource.getProductsWithQuantity(), total: self.total!, receipt: self.refundReceipt, refund: true)
+                self.sales.append(refund)
+                self.refundReceipt += 1
+                self.resetView()
+            }
+        }
     }
 
-    // MARK: - Navigation    
-
+    // MARK: - Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "summary" {
+            let summaryViewController = segue.destinationViewController as! SummaryViewController
+            summaryViewController.saleDataSource.sales = sales
+        }
+    }
+    
     /// Unwind Segue
     @IBAction func unwindToSalesViewController(segue: UIStoryboardSegue) {
         if let addProductViewController = segue.sourceViewController as? AddProductViewController , let product = addProductViewController.product {
             /// **Step 2** Recives and Appends the instance of Product in the array of products in ProductDataSource.
             productDataSource.products.append(product)
-            
-            /// Uploads the product to firebase
-            let productRef = firebase.childByAppendingPath(product.name!.lowercaseString)
-    
-            let products = [
-                "name": product.name!,
-                "price": product.price!,
-                "selected": product.selected!,
-                                 ]
-
-            productRef.setValue(products)
-            
-            // Disabled
-            /*
-            /// Saves persistant data
-            productDataSource.saveProducts()
-            */
         }
     }
     
     //MARK: - Helper methods
     
-    func update(total: Double) {
+    func updateTotalLabel(total: Double) {
      totalLabel.text = "$ \(total)"
+    }
+    
+    func resetView(){
+        productDataSource.resetProducts()
+        productCollectionView.reloadData()
+        
+        self.total = productDataSource.total
+        updateTotalLabel(total!)
+    }
+    
+    func showAlert(title: String, message: String, style: UIAlertControllerStyle, button: String, button2: String, handler: ((UIAlertAction) -> Void)?) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: style)
+        let button = UIAlertAction(title: button, style: .Cancel, handler: nil)
+
+        alert.addAction(button)
+        if button2 != "" {
+        let button2 = UIAlertAction(title: button2, style: .Default, handler: handler)
+         alert.addAction(button2)
+        }
+        
+        presentViewController(alert, animated: true, completion: nil)
     }
 }
 
-// MARK: - Delegate Extension
+// MARK: - Extension / Delegate Conformance
 
 extension SalesViewController: UICollectionViewDelegate {
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let total = productDataSource.addPrices(indexPath)
-        update(total)
+        total = productDataSource.addPrices(indexPath)
+        updateTotalLabel(total!)
         
         let cell = productCollectionView.cellForItemAtIndexPath(indexPath) as! ProductCell
         let cellSelected = productDataSource.turnSelectedCellGreenAtIndexPath(indexPath)
@@ -132,12 +164,10 @@ extension SalesViewController: UICollectionViewDelegate {
         
         let quantity = productDataSource.addQuantity(indexPath)
         cell.quantityLabel.text = "\(quantity)"
-
     }
 }
 
-// MARK: - SalesViewController Extension
-
+/// DataSource conformance
 extension SalesViewController: UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return productDataSource.numbersOfItems()
@@ -163,12 +193,17 @@ extension SalesViewController: UICollectionViewDataSource {
             return cell
         }
         
+        guard let name = productDataSource.products[indexPath.item].name else {
+            return cell
+        }
+        
         cell.blurEffect.hidden = hidden
         cell.greenImage.hidden = !hidden
         cell.quantityLabel.hidden = !hidden
         cell.productImage.image = productImage
         cell.quantityLabel.text = "\(productQuantity)"
         cell.priceLabel.text = "$ \(productPrice)"
+        cell.nameLabel.text = name
         
         return cell
     }

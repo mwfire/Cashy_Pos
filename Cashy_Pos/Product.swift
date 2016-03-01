@@ -7,11 +7,9 @@
 //
 
 import UIKit
-import Firebase
 
-// Product should conform to  NSCoding for persistance, since it was disabled, its not conforming to it. 
 
-class Product : NSObject {
+struct Product  {
     // MARK: - Properties
     
     var name: String?
@@ -29,44 +27,10 @@ class Product : NSObject {
         self.selected = false
         self.quantity = 0
         
-        super.init()
-        
         if name.isEmpty || price < 0 {
             return nil
         }
     }
-    
-    init(snapshot: FDataSnapshot) {
-        name = snapshot.value["name"] as? String
-        price = snapshot.value["price"] as? Double
-        image = UIImage(named: "img")
-        selected = snapshot.value["selected"] as? Bool
-        quantity = 0
-    }
-    
-    // MARK: - NSCoding ( Disabled )
-    /*
-    /// Archiving Paths
-    static let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
-    static let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("products")
-    
-    /// Encode Data
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(name, forKey: Keys.nameKey)
-        aCoder.encodeDouble(price!, forKey: Keys.priceKey)
-        aCoder.encodeObject(image, forKey: Keys.imageKey)
-    }
-    
-    /// Decode Data
-    required convenience init?(coder aDecoder: NSCoder) {
-        let name = aDecoder.decodeObjectForKey(Keys.nameKey) as? String
-        let image = aDecoder.decodeObjectForKey(Keys.imageKey) as? UIImage
-        let price = aDecoder.decodeDoubleForKey(Keys.priceKey)
-        
-        /// Must call designated initializer from self (Product)
-        self.init(name: name!,price: price, image: image!)
-    }
- */
 }
 
 

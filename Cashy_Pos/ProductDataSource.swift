@@ -16,21 +16,6 @@ struct ProductDataSource {
     var products = [Product]()
     var total = 0.00
 
-    //MARK - Saving & Loading data methods ( Disabled )
-    /*
-    
-    func saveProducts() {
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(products, toFile: Product.ArchiveURL.path!)
-        guard !isSuccessfulSave  else {
-            return
-        }
-        print("Failed to save Products...")
-    }
-    
-    func loadProducts() -> [Product]? {
-        return NSKeyedUnarchiver.unarchiveObjectWithFile(Product.ArchiveURL.path!) as? [Product]
-    }
- */
 }
 
 //MARK: - DataSource for productCollectionView
@@ -50,6 +35,7 @@ extension ProductDataSource {
 
 extension ProductDataSource {
 
+    /// When a product is selected, it adds the prices to display in the total label
     mutating func addPrices(indexPath: NSIndexPath ) -> Double {
         guard let price = products[indexPath.item].price else {
             return total
@@ -58,7 +44,8 @@ extension ProductDataSource {
         return total
     }
     
-    func turnSelectedCellGreenAtIndexPath(indexPath: NSIndexPath) -> Bool {
+    /// When a product is selected it turns the cell green
+    mutating func turnSelectedCellGreenAtIndexPath(indexPath: NSIndexPath) -> Bool {
         guard products[indexPath.item].selected == false else {
             return false
         }
@@ -66,9 +53,41 @@ extension ProductDataSource {
         return products[indexPath.item].selected!
     }
     
-    func addQuantity(indexPath: NSIndexPath) -> Int {
+    /// When a product is selected more than onece, it adds the quantity.
+    mutating func addQuantity(indexPath: NSIndexPath) -> Int {
         products[indexPath.item].quantity! += 1
         return products[indexPath.item].quantity!
+    }
+    
+    /// The products that have quantities. This is to create the instance of sale, to know how many products are in one sale.
+    func getProductsWithQuantity() -> [Product] {
+        var products = [Product]()
+        for product in self.products {
+            if product.quantity > 0 {
+                products.append(product)
+            }
+        }
+        return products
+    }
+    
+    /// This resets the products, so that all green cells are deselected.
+    mutating func resetProducts(){
+        var products = [Product]()
+        total = 0.0
+        
+        for var product in self.products {
+            if product.selected == true {
+                product.selected = false
+                product.quantity = 0
+                
+                products.append(product)
+                self.products = products
+          
+            } else if product.selected == false {
+                products.append(product)
+                self.products = products
+            }
+        }
     }
 }
 

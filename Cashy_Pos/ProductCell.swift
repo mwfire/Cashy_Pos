@@ -16,6 +16,7 @@ class ProductCell: UICollectionViewCell {
     @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var blurEffect: UIImageView!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
 
 
     //MARK: - Methods

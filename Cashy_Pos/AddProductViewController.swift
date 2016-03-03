@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Photos
 
 
 class AddProductViewController: UIViewController {
@@ -126,7 +127,7 @@ extension AddProductViewController: UIImagePickerControllerDelegate {
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         /// The info dictionary contains multiple representations of the image, and this uses the original.
         let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-        
+
         /// Set imageField to display the selected image.
         imageField.image = selectedImage
         

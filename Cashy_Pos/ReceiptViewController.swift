@@ -46,6 +46,7 @@ class ReceiptViewController: UIViewController {
         dateLabel.text = convertedDate
         receiptLabel.text = "\(sale.receipt!)"
         totalLabel.text = "$\(sale.total!)"
+        navigationItem.title = "Receipt"
     }
 }
 

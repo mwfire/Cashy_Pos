@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15E49a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kgY-cw-eBN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10112" systemVersion="15E56a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kgY-cw-eBN">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10083"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -64,7 +64,7 @@
                                     <color key="titleColor" red="0.83921568629999999" green="0.36078431370000003" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="refundButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="phr-gE-w9c"/>
+                                    <action selector="refundButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JzH-Qm-Tvu"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total to Pay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W4d-4i-Vu7">
@@ -191,7 +191,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ 0.0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AxK-1R-f9S">
-                                <rect key="frame" x="481" y="472" width="100" height="29"/>
+                                <rect key="frame" x="480" y="472" width="100" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="KVZ-tH-qOM"/>
                                 </constraints>
@@ -250,7 +250,7 @@
                                 <variation key="widthClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstAttribute="trailing" secondItem="gHm-uF-0Bs" secondAttribute="trailing" id="d9F-wB-Yft"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="AxK-1R-f9S" secondAttribute="trailing" constant="-1" id="jSr-mE-17q">
+                            <constraint firstAttribute="trailingMargin" secondItem="AxK-1R-f9S" secondAttribute="trailing" id="jSr-mE-17q">
                                 <variation key="widthClass=compact" constant="26"/>
                             </constraint>
                             <constraint firstItem="gHm-uF-0Bs" firstAttribute="leading" secondItem="KbJ-W6-9jW" secondAttribute="leading" id="keM-KN-vvI">
@@ -677,7 +677,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QTY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tyD-EK-sc5">
-                                <rect key="frame" x="488" y="168" width="28.5" height="17"/>
+                                <rect key="frame" x="465" y="168" width="28.5" height="17"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="14"/>
                                 <color key="textColor" red="0.43529411759999997" green="0.43529411759999997" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -706,8 +706,8 @@
                             <constraint firstItem="Ali-gn-XYP" firstAttribute="leading" secondItem="r0T-Z2-1Qm" secondAttribute="leadingMargin" id="iUS-uv-pxJ"/>
                             <constraint firstItem="m8V-8L-KBO" firstAttribute="leading" secondItem="r0T-Z2-1Qm" secondAttribute="leading" id="iy3-95-cjZ"/>
                             <constraint firstItem="KJq-7c-p4P" firstAttribute="leading" secondItem="vVo-Y9-WJM" secondAttribute="trailing" constant="46" id="lMV-tC-U0O"/>
-                            <constraint firstItem="nzv-V9-veo" firstAttribute="leading" secondItem="tyD-EK-sc5" secondAttribute="trailing" constant="20.5" id="n5s-pj-JJB">
-                                <variation key="widthClass=compact" constant="20.5"/>
+                            <constraint firstItem="nzv-V9-veo" firstAttribute="leading" secondItem="tyD-EK-sc5" secondAttribute="trailing" constant="43.5" id="n5s-pj-JJB">
+                                <variation key="widthClass=compact" constant="43.5"/>
                             </constraint>
                             <constraint firstItem="KJq-7c-p4P" firstAttribute="top" secondItem="WHg-2s-KSZ" secondAttribute="bottom" constant="23" id="sc0-HS-Of8"/>
                             <constraint firstItem="tyD-EK-sc5" firstAttribute="top" secondItem="WHg-2s-KSZ" secondAttribute="bottom" constant="104" id="ssE-Pq-BpA"/>
@@ -795,7 +795,7 @@
                                 <color key="textColor" red="0.76470588240000004" green="0.76470588240000004" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="161" placeholderIntrinsicHeight="161" image="img" translatesAutoresizingMaskIntoConstraints="NO" id="eIN-h5-1sj">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="161" placeholderIntrinsicHeight="161" image="img" translatesAutoresizingMaskIntoConstraints="NO" id="eIN-h5-1sj">
                                 <rect key="frame" x="211" y="154" width="161" height="161"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>

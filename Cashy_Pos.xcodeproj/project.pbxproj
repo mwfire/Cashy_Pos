@@ -29,6 +29,8 @@
 		B083137B1C69C16F00D0CB78 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08313781C69C16F00D0CB78 /* ProductCell.swift */; };
 		B083137C1C69C16F00D0CB78 /* SalesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08313791C69C16F00D0CB78 /* SalesViewController.swift */; };
 		B083137D1C69C16F00D0CB78 /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B083137A1C69C16F00D0CB78 /* AddProductViewController.swift */; };
+		B0AE14651C87D12E00B6CC9F /* PayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AE14631C87D12E00B6CC9F /* PayViewController.swift */; };
+		B0AE14661C87D12E00B6CC9F /* PayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0AE14641C87D12E00B6CC9F /* PayViewController.xib */; };
 		B0B43B151C6D0E1F001C4088 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = B0B43B141C6D0E1F001C4088 /* Podfile */; };
 		B0ECBF761C797A060003D796 /* Sale.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ECBF751C797A060003D796 /* Sale.swift */; };
 		B0ECBF781C797BBA0003D796 /* SaleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ECBF771C797BBA0003D796 /* SaleDataSource.swift */; };
@@ -74,6 +76,8 @@
 		B08313781C69C16F00D0CB78 /* ProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		B08313791C69C16F00D0CB78 /* SalesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SalesViewController.swift; sourceTree = "<group>"; };
 		B083137A1C69C16F00D0CB78 /* AddProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
+		B0AE14631C87D12E00B6CC9F /* PayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayViewController.swift; sourceTree = "<group>"; };
+		B0AE14641C87D12E00B6CC9F /* PayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayViewController.xib; sourceTree = "<group>"; };
 		B0B43B141C6D0E1F001C4088 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		B0ECBF751C797A060003D796 /* Sale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sale.swift; sourceTree = "<group>"; };
 		B0ECBF771C797BBA0003D796 /* SaleDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaleDataSource.swift; sourceTree = "<group>"; };
@@ -198,6 +202,7 @@
 				B083137A1C69C16F00D0CB78 /* AddProductViewController.swift */,
 				B0ECBF791C7983700003D796 /* SummaryViewController.swift */,
 				B046E0391C8342F00019F6FA /* ReceiptViewController.swift */,
+				B0AE14631C87D12E00B6CC9F /* PayViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -206,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				B08313411C69BE7A00D0CB78 /* Main.storyboard */,
+				B0AE14641C87D12E00B6CC9F /* PayViewController.xib */,
 				B08313461C69BE7A00D0CB78 /* LaunchScreen.storyboard */,
 			);
 			name = Layouts;
@@ -314,6 +320,7 @@
 			files = (
 				B08313691C69C0A600D0CB78 /* Montserrat-ExtraBold.otf in Resources */,
 				B083136E1C69C0A600D0CB78 /* Montserrat-UltraLight.otf in Resources */,
+				B0AE14661C87D12E00B6CC9F /* PayViewController.xib in Resources */,
 				B08313681C69C0A600D0CB78 /* Montserrat-Bold.otf in Resources */,
 				B083136A1C69C0A600D0CB78 /* Montserrat-Hairline.otf in Resources */,
 				B08313671C69C0A600D0CB78 /* Montserrat-Black.otf in Resources */,
@@ -390,6 +397,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B083133E1C69BE7A00D0CB78 /* AppDelegate.swift in Sources */,
+				B0AE14651C87D12E00B6CC9F /* PayViewController.swift in Sources */,
 				B0ECBF7A1C7983700003D796 /* SummaryViewController.swift in Sources */,
 				B083137D1C69C16F00D0CB78 /* AddProductViewController.swift in Sources */,
 				B083137C1C69C16F00D0CB78 /* SalesViewController.swift in Sources */,

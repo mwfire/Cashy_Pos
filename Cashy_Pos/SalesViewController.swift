@@ -13,6 +13,7 @@ class SalesViewController: UIViewController {
     // MARK: - Properties
     
     var productDataSource = ProductDataSource()
+    var payViewController = PayViewController()
     var sales = [Sale]()
     var total: Double?
     var receipt: Int = 01
@@ -43,37 +44,42 @@ class SalesViewController: UIViewController {
         if total <= 0 {
             showAlert("Selection Required", message: "Please select a product to sale", style: .Alert, button: "Ok", button2: "", handler: nil)
         } else {
-        
-        // Amount Alert
-        let amountAlert = UIAlertController(title: "Exchange", message: "Enter amount you received", preferredStyle: .Alert)
-        amountAlert.addTextFieldWithConfigurationHandler(nil)
+            
+            // Amount Alert
+            let amountAlert = UIAlertController(title: "Optional", message: "Enter amount you received", preferredStyle: .Alert)
+            amountAlert.addTextFieldWithConfigurationHandler(nil)
             amountAlert.textFields![0].keyboardType = .DecimalPad
-        
-        let cancelButton = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
-        let okButton = UIAlertAction(title: "Ok", style: .Default) { (ACTION) in
-            guard let textField = amountAlert.textFields, let amountString = textField[0].text, let amount = Double(amountString) else {
-                return
+            
+            let cancelButton = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+            let okButton = UIAlertAction(title: "Ok", style: .Default) { (ACTION) in
+                guard let textField = amountAlert.textFields, let amountString = textField[0].text, let amount = Double(amountString) else {
+                    /// Will create an instance of sale when no amount provided.
+                    let sale = Sale(date: NSDate(), products: self.productDataSource.getProductsWithQuantity(), total: self.total!, receipt: self.receipt, refund: false)
+                    self.sales.append(sale)
+                    self.receipt += 1
+                    self.resetView()
+                    return
+                }
+                
+                let totalChange = amount - self.total!
+                
+                // Change Alert
+                let changeAlert = UIAlertController(title: "Return $\(totalChange)", message: "", preferredStyle: .Alert)
+                changeAlert.addAction(UIAlertAction(title: "Go Back", style: .Cancel, handler: nil))
+                changeAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (ACTION) in
+                    
+                    /// Creating an instance of sale after amount provided.
+                    let sale = Sale(date: NSDate(), products: self.productDataSource.getProductsWithQuantity(), total: self.total!, receipt: self.receipt, refund: false)
+                    self.sales.append(sale)
+                    self.receipt += 1
+                    self.resetView()
+                }))
+                self.presentViewController(changeAlert, animated: true, completion: nil)
             }
             
-            let totalChange = amount - self.total!
-            
-            // Change Alert
-            let changeAlert = UIAlertController(title: "Return $\(totalChange)", message: "", preferredStyle: .Alert)
-            changeAlert.addAction(UIAlertAction(title: "Go Back", style: .Cancel, handler: nil))
-            changeAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (ACTION) in
-            
-                /// Creating an instance of sale
-                let sale = Sale(date: NSDate(), products: self.productDataSource.getProductsWithQuantity(), total: self.total!, receipt: self.receipt, refund: false)
-                self.sales.append(sale)
-                self.receipt += 1
-                self.resetView()
-            }))
-            self.presentViewController(changeAlert, animated: true, completion: nil)
-        }
-        
-        amountAlert.addAction(okButton)
-        amountAlert.addAction(cancelButton)
-        presentViewController(amountAlert, animated: true, completion: nil)
+            amountAlert.addAction(okButton)
+            amountAlert.addAction(cancelButton)
+            presentViewController(amountAlert, animated: true, completion: nil)
         }
     }
     

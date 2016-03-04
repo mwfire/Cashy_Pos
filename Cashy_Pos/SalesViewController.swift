@@ -183,7 +183,7 @@ extension SalesViewController: UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! ProductCell
         
-        guard let productImage = productDataSource.products[indexPath.item].image else {
+        guard let productImageURL = productDataSource.products[indexPath.item].imageURL else {
             return cell
         }
         
@@ -206,7 +206,7 @@ extension SalesViewController: UICollectionViewDataSource {
         cell.blurEffect.hidden = hidden
         cell.greenImage.hidden = !hidden
         cell.quantityLabel.hidden = !hidden
-        cell.productImage.image = productImage
+        cell.productImage.imageFromAssetURL(productImageURL)
         cell.quantityLabel.text = "\(productQuantity)"
         cell.priceLabel.text = "$ \(productPrice)"
         cell.nameLabel.text = name

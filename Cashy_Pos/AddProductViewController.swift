@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Photos
-
 
 class AddProductViewController: UIViewController {
     
@@ -21,6 +19,8 @@ class AddProductViewController: UIViewController {
     @IBOutlet weak var priceTextField: UITextField!
     @IBOutlet weak var imageField: UIImageView!
     @IBOutlet weak var saveButton: UIButton!
+    var selectedImageURL : NSURL?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,12 +33,13 @@ class AddProductViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if saveButton === sender {
             
-            guard let name = nameTextField.text, price = Double (priceTextField.text!), image = imageField.image else {
+            guard let name = nameTextField.text, price = Double (priceTextField.text!), imageURL = selectedImageURL else {
                 print("Missing information")
                 return
             }
-                /// **Step 1** Creates an instance of Product.
-                product = Product(name: name, price: price, image: image)
+            
+            /// **Step 1** Creates an instance of Product.
+            product = Product(name: name, price: price, imageURL: imageURL)
         }
     }
     
@@ -127,7 +128,8 @@ extension AddProductViewController: UIImagePickerControllerDelegate {
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         /// The info dictionary contains multiple representations of the image, and this uses the original.
         let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-
+        selectedImageURL = info[UIImagePickerControllerReferenceURL] as? NSURL
+        
         /// Set imageField to display the selected image.
         imageField.image = selectedImage
         
@@ -142,10 +144,3 @@ extension AddProductViewController: UIImagePickerControllerDelegate {
 extension AddProductViewController: UINavigationControllerDelegate {
     
 }
-
-
-
-
-
-
-

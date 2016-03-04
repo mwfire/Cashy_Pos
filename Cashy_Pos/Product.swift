@@ -14,16 +14,16 @@ struct Product  {
     
     var name: String?
     var price: Double?
-    var image: UIImage?
+    var imageURL: NSURL?
     var selected: Bool? 
     var quantity: Int?
     
     // MARK: - Initialization
     
-    init?(name: String, price: Double, image: UIImage){
+    init?(name: String, price: Double, imageURL: NSURL){
         self.name = name
         self.price = price
-        self.image = image
+        self.imageURL = imageURL
         self.selected = false
         self.quantity = 0
         

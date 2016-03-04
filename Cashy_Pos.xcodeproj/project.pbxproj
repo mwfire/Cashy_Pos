@@ -36,6 +36,7 @@
 		B0ECBF781C797BBA0003D796 /* SaleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ECBF771C797BBA0003D796 /* SaleDataSource.swift */; };
 		B0ECBF7A1C7983700003D796 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ECBF791C7983700003D796 /* SummaryViewController.swift */; };
 		B0ECBF7C1C7A84980003D796 /* ReceiptCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ECBF7B1C7A84980003D796 /* ReceiptCell.swift */; };
+		C72C2B391C899C87006CFD3A /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72C2B381C899C87006CFD3A /* UIImageViewExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		B0ECBF771C797BBA0003D796 /* SaleDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaleDataSource.swift; sourceTree = "<group>"; };
 		B0ECBF791C7983700003D796 /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
 		B0ECBF7B1C7A84980003D796 /* ReceiptCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiptCell.swift; sourceTree = "<group>"; };
+		C72C2B381C899C87006CFD3A /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensions.swift; sourceTree = "<group>"; };
 		D4BF4FA9E549EC0D9F46B580 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,6 +150,7 @@
 		B083133C1C69BE7A00D0CB78 /* Cashy_Pos */ = {
 			isa = PBXGroup;
 			children = (
+				C72C2B3A1C899CB8006CFD3A /* Extensions */,
 				B08313701C69C0EF00D0CB78 /* Models */,
 				B08313771C69C15500D0CB78 /* Controllers */,
 				B046E03E1C8375390019F6FA /* Views */,
@@ -224,6 +227,14 @@
 				B083133D1C69BE7A00D0CB78 /* AppDelegate.swift */,
 			);
 			name = Others;
+			sourceTree = "<group>";
+		};
+		C72C2B3A1C899CB8006CFD3A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C72C2B381C899C87006CFD3A /* UIImageViewExtensions.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		FF6D294718BAB17C76999F4F /* Frameworks */ = {
@@ -406,6 +417,7 @@
 				B083137B1C69C16F00D0CB78 /* ProductCell.swift in Sources */,
 				B08313731C69C11D00D0CB78 /* Product.swift in Sources */,
 				B0ECBF781C797BBA0003D796 /* SaleDataSource.swift in Sources */,
+				C72C2B391C899C87006CFD3A /* UIImageViewExtensions.swift in Sources */,
 				B046E03C1C8346E50019F6FA /* ReceiptDetailCell.swift in Sources */,
 				B046E03A1C8342F00019F6FA /* ReceiptViewController.swift in Sources */,
 				B08313761C69C13900D0CB78 /* Keys.swift in Sources */,
